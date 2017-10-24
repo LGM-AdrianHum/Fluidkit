@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="FluidKit.Samples.Transition.TransitionTester"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Controls="clr-namespace:FluidKit.Controls;assembly=FluidKit"
+            >
+    <UserControl.Resources>
+        <Controls:SlideTransition x:Key="SlideTransition" />
+        <Controls:CubeTransition x:Key="CubeTransition"
+                                 Rotation="BottomToTop" />
+        <Controls:GenieTransition x:Key="GenieTransition" />
+        <Controls:FlipTransition x:Key="FlipTransition" />
+    </UserControl.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left"
+                    Width="200">
+            <GroupBox Header="Genie">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Content="Into Lamp"
+                                 x:Name="_intoLamp"
+                                 IsChecked="True" />
+                    <RadioButton Content="Out of Lamp"
+                                 x:Name="_outOfLamp" />
+                    <Button x:Name="_playGenie"
+                            Content="Play"
+                            HorizontalAlignment="Right"
+                            Click="PlayTransition" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Cube"
+                      Margin="0,10,0,0">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Content="Left to Right"
+                                 x:Name="_l2r"
+                                 IsChecked="True" />
+                    <RadioButton Content="Right to Left"
+                                 x:Name="_r2l" />
+                    <RadioButton Content="Top to Bottom"
+                                 x:Name="_t2b" />
+                    <RadioButton Content="Bottom to Top"
+                                 x:Name="_b2t" />
+                    <Button x:Name="_playCube"
+                            Content="Play"
+                            HorizontalAlignment="Right"
+                            Click="PlayTransition" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Slide"
+                      Margin="0,10,0,0">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Content="Left to Right"
+                                 x:Name="_slideL2R"
+                                 IsChecked="True" />
+                    <RadioButton Content="Right to Left"
+                                 x:Name="_slideR2L" />
+                    <Button x:Name="_playSlide"
+                            Content="Play"
+                            HorizontalAlignment="Right"
+                            Click="PlayTransition" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Flip"
+                      Margin="0,10,0,0">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Content="Left to Right"
+                                 x:Name="_flipL2R"
+                                 IsChecked="True" />
+                    <RadioButton Content="Right to Left"
+                                 x:Name="_flipR2L" />
+                    <Button x:Name="_playFlip"
+                            Content="Play"
+                            HorizontalAlignment="Right"
+                            Click="PlayTransition" />
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <Controls:TransitionPresenter x:Name="_transContainer"
+                                      MouseLeftButtonDown="SwitchImage"
+                                      RestDuration="0:0:3"
+                                      IsLooped="True"
+                                      Transition="{StaticResource SlideTransition}">
+            <Image x:Name="_image1"
+                   Source="Images/img1.jpg"
+                   Stretch="Fill" />
+            <Image x:Name="_image2"
+                   Source="Images/img2.jpg"
+                   Stretch="Fill" />
+        </Controls:TransitionPresenter>
+    </DockPanel>
+</UserControl>

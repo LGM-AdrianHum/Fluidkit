@@ -1,0 +1,142 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Controls="clr-namespace:FluidKit.Controls;assembly=FluidKit"
+             x:Class="FluidKit.Samples.HalfCirclePanel.HalfCircleExample"
+             mc:Ignorable="d">
+    <UserControl.CommandBindings>
+        <CommandBinding Command="NavigationCommands.NextPage"
+                        Executed="GoToNextItem"
+                        CanExecute="CanGoToNextItem" />
+        <CommandBinding Command="NavigationCommands.PreviousPage"
+                        Executed="GoToPreviousItem"
+                        CanExecute="CanGoToPreviousItem" />
+    </UserControl.CommandBindings>
+    <UserControl.InputBindings>
+        <KeyBinding Command="NavigationCommands.NextPage"
+                    Key="Up"
+                    Modifiers="Control" />
+        <KeyBinding Command="NavigationCommands.PreviousPage"
+                    Key="Down"
+                    Modifiers="Control" />
+    </UserControl.InputBindings>
+    <DockPanel Background="#FF515151">
+        <StackPanel Width="100"
+                    Orientation="Vertical"
+                    Margin="5">
+            <StackPanel.Effect>
+                <DropShadowEffect Opacity="0.5" />
+            </StackPanel.Effect>
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1"
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FF676767"
+                                  Offset="0.5" />
+                    <GradientStop Color="#FF101010"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <TextBlock Margin="0,0,49.54,5"
+                       Text="ItemGap"
+                       TextWrapping="Wrap"
+                       d:LayoutOverrides="Width"
+                       FontWeight="Bold" />
+            <Slider x:Name="ItemGapSlider"
+                    Width="100"
+                    d:LayoutOverrides="HorizontalMargin"
+                    BorderThickness="0,0,0,10"
+                    Maximum="200"
+                    SmallChange="1"
+                    Value="60" />
+            <TextBlock Text="ItemWidth"
+                       TextWrapping="Wrap"
+                       FontWeight="Bold"
+                       Margin="0,0,0,5" />
+            <Slider x:Name="ItemWidthSlider"
+                    Width="100"
+                    d:LayoutOverrides="HorizontalMargin"
+                    BorderThickness="0,0,0,10"
+                    Maximum="200"
+                    SmallChange="1"
+                    Value="48" />
+            <TextBlock Text="ItemHeight"
+                       TextWrapping="Wrap"
+                       FontWeight="Bold"
+                       Margin="0,0,0,5" />
+            <Slider x:Name="ItemHeightSlider"
+                    Width="100"
+                    d:LayoutOverrides="HorizontalMargin"
+                    BorderThickness="0,0,0,10"
+                    Maximum="200"
+                    SmallChange="1"
+                    Value="48" />
+            <TextBlock TextWrapping="Wrap"
+                       FontWeight="Bold"
+                       Margin="0,0,0,5">
+				<Run Text="Orientation" />
+            </TextBlock>
+            <RadioButton Margin="10,0,18.09,0"
+                         Content="Left"
+                         d:LayoutOverrides="Width"
+                         IsChecked="True"
+                         Tag="Left"
+                         Click="ChangeOrientation" />
+            <RadioButton Content="Right"
+                         Margin="10,0,0,0"
+                         Tag="Right"
+                         Click="ChangeOrientation" />
+            <Border Margin="0,10,0,0"
+                    Padding="3"
+                    BorderBrush="Black"
+                    BorderThickness="0,1,0,0">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1"
+                                         StartPoint="0.5,0">
+                        <GradientStop Color="#FFF4E168"
+                                      Offset="0" />
+                        <GradientStop Color="#FFD4BB1B"
+                                      Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <TextBlock TextWrapping="Wrap"
+                           Text="Use CTRL + UP, CTRL + DOWN for snap-in animation"
+                           FontWeight="Bold" />
+            </Border>
+        </StackPanel>
+        <ScrollBar x:Name="Scroller"
+                   Orientation="Vertical"
+                   Minimum="0"
+                   ViewportSize="5"
+                   Value="0"
+                   DockPanel.Dock="Right" />
+        <Grid>
+
+            <Controls:HalfCirclePanel x:Name="CircPanel"
+                                      NavigationOffset="{Binding Value, ElementName=Scroller, Mode=TwoWay}"
+                                      ItemWidth="{Binding Value, ElementName=ItemWidthSlider, Mode=Default}"
+                                      ItemHeight="{Binding Value, ElementName=ItemHeightSlider, Mode=Default}"
+                                      ItemGap="{Binding Value, ElementName=ItemGapSlider, Mode=Default}"
+                                      d:LayoutOverrides="Width"
+                                      ClipToBounds="True" />
+            <Rectangle Stroke="#FF4F4F4F"
+                       VerticalAlignment="Center"
+                       Height="{Binding Value, ElementName=ItemHeightSlider, Mode=Default}"
+                       Opacity="0.495">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1"
+                                         StartPoint="0.5,0">
+                        <GradientStop Color="#FF000D96"
+                                      Offset="1" />
+                        <GradientStop Color="#FF8D92FA" />
+                        <GradientStop Color="#FE506FFA"
+                                      Offset="0.498" />
+                        <GradientStop Color="#FE002996"
+                                      Offset="0.56" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+    </DockPanel>
+</UserControl>

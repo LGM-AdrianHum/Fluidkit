@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="FluidKit.Samples.PennerDoubleAnimation.PennerTester"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Animation="clr-namespace:FluidKit.Helpers.Animation;assembly=FluidKit">
+    <UserControl.Resources>
+        <Storyboard x:Key="Animation">
+            <Animation:PennerDoubleAnimation Duration="0:0:1"
+                                             From="25"
+                                             To="100"
+                                             Storyboard.TargetProperty="(RenderTransform).(TranslateTransform.X)" />
+            <Animation:PennerDoubleAnimation Duration="0:0:1"
+                                             From="25"
+                                             To="100"
+                                             Storyboard.TargetProperty="(RenderTransform).(TranslateTransform.Y)" />
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid Background="#FF2F2F2F">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="166*" />
+            <ColumnDefinition Width="112*" />
+        </Grid.ColumnDefinitions>
+        <Button Width="100"
+                Height="25"
+                Click="PennerAnimate">
+            Animate!
+            <Button.RenderTransform>
+                <TranslateTransform />
+            </Button.RenderTransform>
+        </Button>
+        <StackPanel Grid.Column="1">
+            <RadioButton Click="SelectEquation"
+                         IsChecked="True">Linear</RadioButton>
+
+            <RadioButton Click="SelectEquation">ExpoEaseIn</RadioButton>
+            <RadioButton Click="SelectEquation">ExpoEaseOut</RadioButton>
+
+            <RadioButton Click="SelectEquation">QuadEaseIn</RadioButton>
+            <RadioButton Click="SelectEquation">QuadEaseOut</RadioButton>
+
+            <RadioButton Click="SelectEquation">CubicEaseIn</RadioButton>
+            <RadioButton Click="SelectEquation">CubicEaseOut</RadioButton>
+
+            <RadioButton Click="SelectEquation">QuartEaseIn</RadioButton>
+            <RadioButton Click="SelectEquation">QuartEaseOut</RadioButton>
+
+            <RadioButton Click="SelectEquation">QuintEaseIn</RadioButton>
+            <RadioButton Click="SelectEquation">QuintEaseOut</RadioButton>
+
+            <RadioButton Click="SelectEquation">CircEaseIn</RadioButton>
+            <RadioButton Click="SelectEquation">CircEaseOut</RadioButton>
+
+            <RadioButton Click="SelectEquation">SineEaseIn</RadioButton>
+            <RadioButton Click="SelectEquation">SineEaseOut</RadioButton>
+
+            <RadioButton Click="SelectEquation">BounceEaseIn</RadioButton>
+            <RadioButton Click="SelectEquation">BounceEaseOut</RadioButton>
+
+            <RadioButton Click="SelectEquation">ElasticEaseIn</RadioButton>
+            <RadioButton Click="SelectEquation">ElasticEaseOut</RadioButton>
+
+            <RadioButton Click="SelectEquation">BackEaseIn</RadioButton>
+            <RadioButton Click="SelectEquation">BackEaseOut</RadioButton>
+        </StackPanel>
+    </Grid>
+</UserControl>

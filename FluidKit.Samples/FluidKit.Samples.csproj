@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC260BA0-D13E-47C2-93C5-AF0E0F76EAFF}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FluidKit.Samples</RootNamespace>
+    <AssemblyName>FluidKit.Samples</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition">
+      <HintPath>..\Libs\Mef\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExportExampleAttribute.cs" />
+    <Compile Include="GlassWindow\GlassWindowExample.xaml.cs">
+      <DependentUpon>GlassWindowExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StringCollection.cs" />
+    <Compile Include="View3D\View3DExample.xaml.cs">
+      <DependentUpon>View3DExample.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AutoComplete\AutoCompleteExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DragDrop\CanvasExample\DragCanvasExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DragDrop\CrossApp\CrossApp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DragDrop\PanelExample\PanelExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ElementFlow\ElementFlowExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GlassWindow\GlassWindowExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GlassWindow\SampleGlassWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HalfCirclePanel\HalfCircleExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ItemSkimmingPanel\ItemSkimmingExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PennerDoubleAnimation\PennerTester.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shaders\DynamicShaderTester.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shaders\WarpEffectExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shapes\CustomShapes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shapes\CustomShapes_Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transition\TransitionTester.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="AutoComplete\AutoCompleteExample.xaml.cs">
+      <DependentUpon>AutoCompleteExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DragDrop\CanvasExample\CanvasDragDropAdvisor.cs" />
+    <Compile Include="DragDrop\CanvasExample\DragCanvasExample.xaml.cs">
+      <DependentUpon>DragCanvasExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DragDrop\CrossApp\CrossApp.xaml.cs">
+      <DependentUpon>CrossApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DragDrop\CrossApp\CrossAppAdvisor.cs" />
+    <Compile Include="DragDrop\PanelExample\DefaultDragSourceAdvisor.cs" />
+    <Compile Include="DragDrop\PanelExample\DefaultDropTargetAdvisor.cs" />
+    <Compile Include="DragDrop\PanelExample\PanelExample.xaml.cs">
+      <DependentUpon>PanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ElementFlow\ElementFlowExample.xaml.cs">
+      <DependentUpon>ElementFlowExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlassWindow\SampleGlassWindow.xaml.cs">
+      <DependentUpon>SampleGlassWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HalfCirclePanel\HalfCircleExample.xaml.cs">
+      <DependentUpon>HalfCircleExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemSkimmingPanel\ItemSkimmingExample.xaml.cs">
+      <DependentUpon>ItemSkimmingExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PennerDoubleAnimation\PennerTester.xaml.cs">
+      <DependentUpon>PennerTester.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shaders\DynamicShaderTester.xaml.cs">
+      <DependentUpon>DynamicShaderTester.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shaders\WarpEffectExample.xaml.cs">
+      <DependentUpon>WarpEffectExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shapes\CustomShapes.cs">
+      <DependentUpon>CustomShapes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transition\TransitionTester.xaml.cs">
+      <DependentUpon>TransitionTester.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View3D\View3DExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DragDrop\CrossApp\clouds.png" />
+    <Resource Include="ElementFlow\Images\01.jpg" />
+    <Resource Include="ElementFlow\Images\02.jpg" />
+    <Resource Include="ElementFlow\Images\03.jpg" />
+    <Resource Include="ElementFlow\Images\04.jpg" />
+    <Resource Include="ElementFlow\Images\05.jpg" />
+    <Resource Include="ElementFlow\Images\06.jpg" />
+    <Resource Include="ElementFlow\Images\07.jpg" />
+    <Resource Include="ElementFlow\Images\08.jpg" />
+    <Resource Include="ElementFlow\Images\09.jpg" />
+    <Resource Include="ElementFlow\Images\10.jpg" />
+    <Resource Include="ElementFlow\Images\11.jpg" />
+    <Resource Include="ElementFlow\Images\12.jpg" />
+    <Resource Include="HalfCirclePanel\covers\0.jpg" />
+    <Resource Include="HalfCirclePanel\covers\1.jpg" />
+    <Resource Include="HalfCirclePanel\covers\10.jpg" />
+    <Resource Include="HalfCirclePanel\covers\2.jpg" />
+    <Resource Include="HalfCirclePanel\covers\3.jpg" />
+    <Resource Include="HalfCirclePanel\covers\4.jpg" />
+    <Resource Include="HalfCirclePanel\covers\5.jpg" />
+    <Resource Include="HalfCirclePanel\covers\6.jpg" />
+    <Resource Include="HalfCirclePanel\covers\7.jpg" />
+    <Resource Include="HalfCirclePanel\covers\8.jpg" />
+    <Resource Include="HalfCirclePanel\covers\9.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\01.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\02.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\03.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\04.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\05.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\06.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\07.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\08.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\09.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\10.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\11.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\12.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\13.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\14.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\15.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\16.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\17.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\18.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\19.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\20.jpg" />
+    <Resource Include="ItemSkimmingPanel\Resources\Images\21.jpg" />
+    <Resource Include="Shaders\img.jpg" />
+    <Resource Include="Transition\Images\img1.jpg" />
+    <Resource Include="Transition\Images\img2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FluidKit\FluidKit.csproj">
+      <Project>{75541544-BF77-4FDC-B03B-BC0DBEBFB8F5}</Project>
+      <Name>FluidKit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

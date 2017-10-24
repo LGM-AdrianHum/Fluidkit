@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="FluidKit.Samples.Shaders.DynamicShaderTester"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Shaders="clr-namespace:FluidKit.Shaders;assembly=FluidKit"
+>
+    <DockPanel>
+        <StackPanel Width="150">
+            <TextBlock Text="{Binding Value, ElementName=_param1, StringFormat=Param1 \= {0:F2}}" />
+            <Slider x:Name="_param1"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="0.1" />
+
+            <TextBlock Text="{Binding Value, ElementName=_param2, StringFormat=Param2 \= {0:F2}}"
+                       Margin="0,8,0,0" />
+            <Slider x:Name="_param2"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="0.5" />
+
+            <TextBlock Text="{Binding Value, ElementName=_param3, StringFormat=Param3 \= {0:F2}}"
+                       Margin="0,8,0,0" />
+            <Slider x:Name="_param3"
+                    Minimum="0"
+                    Maximum="90"
+                    Value="45" />
+            <StackPanel Margin="8,30,8,0">
+                <Button x:Name="_animStarter">Start Animation</Button>
+                <Button x:Name="_animReset"
+                        Margin="0,8,0,0">Reset</Button>
+            </StackPanel>
+        </StackPanel>
+        <Image Source="img.jpg"
+               Stretch="Fill"
+               Margin="10">
+            <Image.Effect>
+                <Shaders:DynamicShaderEffect x:Name="_dynEffect"
+                                             DynamicShader="BlueShift"
+                                             Param1="{Binding Value, ElementName=_param1}"
+                                             Param2="{Binding Value, ElementName=_param2}"
+                                             Param3="{Binding Value, ElementName=_param3}" />
+            </Image.Effect>
+        </Image>
+    </DockPanel>
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Button.Click"
+                      SourceName="_animStarter">
+            <BeginStoryboard x:Name="RippleAnimation">
+                <Storyboard>
+                    <DoubleAnimation To="0"
+                                     Duration="0:0:2"
+                                     Storyboard.TargetName="_dynEffect"
+                                     Storyboard.TargetProperty="Param1" />
+                    <!--<DoubleAnimation To="0"
+									 Duration="0:0:2"
+									 Storyboard.TargetName="_dynEffect"
+									 Storyboard.TargetProperty="Param2" />-->
+                    <DoubleAnimation To="0"
+                                     Duration="0:0:2"
+                                     Storyboard.TargetName="_dynEffect"
+                                     Storyboard.TargetProperty="Param3" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="Button.Click"
+                      SourceName="_animReset">
+            <RemoveStoryboard BeginStoryboardName="RippleAnimation" />
+        </EventTrigger>
+
+    </UserControl.Triggers>
+</UserControl>

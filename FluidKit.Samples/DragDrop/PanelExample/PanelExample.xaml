@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="FluidKit.Samples.DragDrop.PanelExample.PanelExample"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:DragDrop="clr-namespace:FluidKit.Helpers.DragDrop;assembly=FluidKit"
+             xmlns:PanelExample="clr-namespace:FluidKit.Samples.DragDrop.PanelExample">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <PanelExample:DefaultDragSourceAdvisor x:Key="sourceAdvisor1" />
+            <PanelExample:DefaultDragSourceAdvisor x:Key="sourceAdvisor2" />
+            <PanelExample:DefaultDragSourceAdvisor x:Key="sourceAdvisor3" />
+
+            <PanelExample:DefaultDropTargetAdvisor x:Key="targetAdvisor1" />
+            <PanelExample:DefaultDropTargetAdvisor x:Key="targetAdvisor2" />
+            <PanelExample:DefaultDropTargetAdvisor x:Key="targetAdvisor3" />
+
+            <Style x:Key="DragButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="Width"
+                        Value="50" />
+                <Setter Property="Height"
+                        Value="60" />
+                <Setter Property="Margin"
+                        Value="3" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid x:Name="_mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Grid.Column="0"
+                BorderBrush="Black"
+                BorderThickness="2"
+                CornerRadius="8">
+            <WrapPanel x:Name="_topPanel"
+                       Background="White"
+                       DragDrop:DragDropManager.DropTargetAdvisor="{StaticResource targetAdvisor1}">
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+            </WrapPanel>
+        </Border>
+
+        <Border Grid.Row="0"
+                Grid.Column="1"
+                BorderBrush="Green"
+                BorderThickness="2"
+                CornerRadius="8">
+            <WrapPanel Background="White"
+                       DragDrop:DragDropManager.DragSourceAdvisor="{StaticResource sourceAdvisor2}">
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Top" Style="{DynamicResource DragButtonStyle}" />
+            </WrapPanel>
+        </Border>
+
+        <Border Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                BorderBrush="Red"
+                BorderThickness="2"
+                CornerRadius="8">
+            <WrapPanel x:Name="_bottomPanel"
+                       Background="White"
+                       DragDrop:DragDropManager.DragSourceAdvisor="{StaticResource sourceAdvisor3}"
+                       DragDrop:DragDropManager.DropTargetAdvisor="{StaticResource targetAdvisor2}">
+                <Button Content="Bottom" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Bottom" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Bottom" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Bottom" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Bottom" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Bottom" Style="{DynamicResource DragButtonStyle}" />
+                <Button Content="Bottom" Style="{DynamicResource DragButtonStyle}" />
+            </WrapPanel>
+        </Border>
+    </Grid>
+</UserControl>

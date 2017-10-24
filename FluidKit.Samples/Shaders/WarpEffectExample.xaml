@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="FluidKit.Samples.Shaders.WarpEffectExample"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Shaders="clr-namespace:FluidKit.Shaders;assembly=FluidKit"
+>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left"
+                    Width="200">
+            <TextBlock Text="L1" />
+            <Slider x:Name="_lp1"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="0" />
+            <TextBlock Text="L2" />
+            <Slider x:Name="_lp2"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="0.25" />
+            <TextBlock Text="L3" />
+            <Slider x:Name="_lp3"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="0.35" />
+            <TextBlock Text="L4" />
+            <Slider x:Name="_lp4"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="0.5" />
+
+            <TextBlock Text="R1"
+                       Margin="0,20,0,0" />
+            <Slider x:Name="_rp1"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="1" />
+            <TextBlock Text="R2" />
+            <Slider x:Name="_rp2"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="0.85" />
+            <TextBlock Text="R3" />
+            <Slider x:Name="_rp3"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="0.75" />
+            <TextBlock Text="R4" />
+            <Slider x:Name="_rp4"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="0.5" />
+        </StackPanel>
+
+        <Border BorderBrush="Gray"
+                CornerRadius="5"
+                BorderThickness="1"
+                Margin="5">
+            <Image Source="img.jpg"
+                   Grid.Row="1"
+                   Stretch="Fill"
+                   Margin="10">
+                <Image.Effect>
+                    <Shaders:WarpEffect L1="{Binding Value, ElementName=_lp1}"
+                                        L2="{Binding Value, ElementName=_lp2}"
+                                        L3="{Binding Value, ElementName=_lp3}"
+                                        L4="{Binding Value, ElementName=_lp4}"
+                                        R1="{Binding Value, ElementName=_rp1}"
+                                        R2="{Binding Value, ElementName=_rp2}"
+                                        R3="{Binding Value, ElementName=_rp3}"
+                                        R4="{Binding Value, ElementName=_rp4}" />
+                </Image.Effect>
+            </Image>
+        </Border>
+    </DockPanel>
+</UserControl>

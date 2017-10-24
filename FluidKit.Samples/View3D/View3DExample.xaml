@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="FluidKit.Samples.View3D.View3DExample"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:View3D="clr-namespace:FluidKit.Controls.View3D;assembly=FluidKit"
+>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom">
+            <TextBlock>Focal Length</TextBlock>
+            <Slider Minimum="0"
+                    Maximum="5000"
+                    Value="{Binding FocalLength, ElementName=_view3D, Mode=TwoWay}" />
+            <TextBlock Text="{Binding Theta, ElementName=_view3D, StringFormat=Theta: {0}}" />
+            <TextBlock Text="{Binding Phi, ElementName=_view3D, StringFormat=Phi: {0}}" />
+            <TextBlock Text="{Binding Phi, ElementName=_view3D, StringFormat=Phi: {0}}" />
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Left">
+            <Button x:Name="_cube"
+                    Click="AddModel">Add Cube</Button>
+            <Button x:Name="_cylinder"
+                    Click="AddModel">Add Cylinder</Button>
+            <Button x:Name="_sphere"
+                    Click="AddModel">Add Sphere</Button>
+            <Button x:Name="_torus"
+                    Click="AddModel">Add Torus</Button>
+            <Button x:Name="_cone"
+                    Click="AddModel">Add Cone</Button>
+        </StackPanel>
+
+        <View3D:View3DPresenter x:Name="_view3D"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center" />
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,14 @@
+<FluidKit_Showcase:FluidKitShowcase xmlns:FluidKit_Showcase="clr-namespace:FluidKit.Showcase">
+	<FluidKit_Showcase:FluidKitShowcase.Examples>
+		<FluidKit_Showcase:FluidKitExample Title="Aenean cras class"/>
+		<FluidKit_Showcase:FluidKitExample Title="Mauris curae"/>
+		<FluidKit_Showcase:FluidKitExample Title="Nam duis curabitur"/>
+		<FluidKit_Showcase:FluidKitExample Title="Nunc aliquam donec"/>
+		<FluidKit_Showcase:FluidKitExample Title="Nullam vestibulum adipiscing"/>
+		<FluidKit_Showcase:FluidKitExample Title="Sed amet"/>
+		<FluidKit_Showcase:FluidKitExample Title="Dis maecenas"/>
+		<FluidKit_Showcase:FluidKitExample Title="Aptent integer parturient est phasellus"/>
+		<FluidKit_Showcase:FluidKitExample Title="Praesent vestibulum"/>
+		<FluidKit_Showcase:FluidKitExample Title="Consequat convallis ante quisque"/>
+	</FluidKit_Showcase:FluidKitShowcase.Examples>
+</FluidKit_Showcase:FluidKitShowcase>

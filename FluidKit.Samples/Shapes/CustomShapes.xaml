@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="FluidKit.Samples.Shapes.CustomShapes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Shapes="clr-namespace:FluidKit.Shapes;assembly=FluidKit">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="CustomShapes_Resources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <TabControl>
+
+        <!-- ################################## CogwheelShape Tab #########################################################-->
+
+        <TabItem Header="CogWheelShape"
+                 Tag="{Binding ElementName=cogwheelContainer, Path=Content}"
+                 HeaderTemplate="{StaticResource HeaderTemplate}">
+            <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                <StackPanel DockPanel.Dock="Bottom"
+                            Margin="10,0,0,0">
+
+                    <HeaderedContentControl Header="Teeth:">
+                        <Slider x:Name="TeethSlider"
+                                Value="5"
+                                Minimum="2"
+                                Maximum="50" />
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Header="Thickness:">
+                        <Slider x:Name="ThicknessSlider"
+                                Value="2"
+                                Minimum="0"
+                                Maximum="10"
+                                TickFrequency="0.5" />
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Header="InnerRadiusOffset:">
+                        <Slider x:Name="InnerRadiusOffsetSlider"
+                                Value="20"
+                                Minimum="0"
+                                Maximum="100"
+                                TickFrequency="5" />
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Header="MiddleRadiusOffset:">
+                        <Slider x:Name="MiddleRadiusOffsetSlider"
+                                Value="20"
+                                Minimum="0"
+                                Maximum="100"
+                                TickFrequency="5" />
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Header="Bevel:">
+                        <Slider x:Name="BevelSlider"
+                                Value="20"
+                                Minimum="0"
+                                Maximum="100"
+                                TickFrequency="5" />
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Header="RotationAngle:">
+                        <Slider x:Name="RotationAngleSlider"
+                                Value="0"
+                                Minimum="0"
+                                Maximum="360"
+                                TickFrequency="5" />
+                    </HeaderedContentControl>
+
+                </StackPanel>
+                <ContentControl x:Name="cogwheelContainer" DockPanel.Dock="Top">
+
+                	<Shapes:CogWheelShape Opacity="1"
+                		Fill="#FFE81900"
+                		Stroke="Black"
+                		Teeth="{Binding Value, ElementName=TeethSlider}"
+                		StrokeThickness="{Binding Value, ElementName=ThicknessSlider}"
+                		InnerRadiusOffset="{Binding Value, ElementName=InnerRadiusOffsetSlider}"
+                		MiddleRadiusOffset="{Binding Value, ElementName=MiddleRadiusOffsetSlider}"
+                		Bevel="{Binding Value, ElementName=BevelSlider}"
+                		RotationAngle="{Binding Value, ElementName=RotationAngleSlider}" />
+                </ContentControl>
+            </DockPanel>
+        </TabItem>
+
+        <!-- ################################## PolygonShape Tab #########################################################-->
+
+        <TabItem Header="PolygonShape"
+                 Tag="{Binding ElementName=polygonContainer, Path=Content}"
+                 HeaderTemplate="{StaticResource HeaderTemplate}">
+
+            <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                <StackPanel DockPanel.Dock="Bottom"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Margin="10,0,0,0">
+
+                    <HeaderedContentControl Header="Corners:">
+                        <Slider x:Name="CornerSlider"
+                                Value="3"
+                                Minimum="3"
+                                Maximum="50" />
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Header="Thickness:">
+                        <Slider x:Name="PolygonThicknessSlider"
+                                Value="2"
+                                Minimum="0"
+                                Maximum="10"
+                                TickFrequency="0.5" />
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Header="InnerRadiusOffset:">
+                        <Slider x:Name="PolygonInnerRadiusOffsetSlider"
+                                Value="0"
+                                Minimum="0"
+                                Maximum="200"
+                                TickFrequency="5" />
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Header="RotationAngle:">
+                        <Slider x:Name="PolygonRotationAngleSlider"
+                                Value="0"
+                                Minimum="0"
+                                Maximum="360"
+                                TickFrequency="5" />
+                    </HeaderedContentControl>
+
+                </StackPanel>
+                <ContentControl x:Name="polygonContainer">
+                	<Shapes:PolygonShape Grid.Row="5"
+                		Fill="#FF009600"
+                		Stroke="Black"
+                		Opacity="1"
+                		InnerRadiusOffset="{Binding Value, ElementName=PolygonInnerRadiusOffsetSlider}"
+                		StrokeThickness="{Binding Value, ElementName=PolygonThicknessSlider}"
+                		CornerPoints="{Binding Value, ElementName=CornerSlider}"
+                		RotationAngle="{Binding Value, ElementName=PolygonRotationAngleSlider}" />
+                </ContentControl>
+            </DockPanel>
+        </TabItem>
+
+    </TabControl>
+</UserControl>

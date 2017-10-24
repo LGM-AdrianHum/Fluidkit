@@ -1,0 +1,132 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="FluidKit.Showcase.MainWindow"
+        Title="FluidKit Showcase"
+        Width="700"
+        Icon="AppIcon.png"
+        Height="500"
+        d:DataContext="{d:DesignData /SampleData/FluidKitShowcaseSampleData.xaml}"
+        WindowState="Maximized">
+    <Window.Resources>
+        <Style x:Key="ExampleListItemStyle"
+               TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+            <Setter Property="Padding"
+                    Value="2,0,0,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="Storyboard1" />
+                        </ControlTemplate.Resources>
+                        <Border x:Name="Bd"
+                                Background="Transparent"
+                                SnapsToDevicePixels="true"
+                                Padding="5,3,0,5"
+                                BorderThickness="1"
+                                BorderBrush="#00000000">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Background"
+                                        TargetName="Bd"
+                                        Value="#7FFFAF00" />
+                            </Trigger>
+                            <Trigger Property="IsSelected"
+                                     Value="true">
+                                <Setter Property="Background"
+                                        TargetName="Bd"
+                                        Value="#FFFFAF4D" />
+                                <Setter Property="BorderBrush"
+                                        TargetName="Bd"
+                                        Value="#FFFFBF31" />
+                                <Setter Property="FontWeight"
+                                        Value="Bold" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled"
+                                     Value="false">
+                                <Setter Property="Foreground"
+                                        Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="ExampleItemTemplate">
+            <Grid>
+                <TextBlock TextWrapping="Wrap"
+                           Text="{Binding Title}"
+                           d:LayoutOverrides="Width, Height"
+                           FontSize="13.333" />
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"
+                           MinHeight="29" />
+            <RowDefinition Height="71" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"
+                              MinWidth="181.944" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="ExamplesList"
+                 ItemsSource="{Binding Examples}"
+                 BorderThickness="0,0,5,0"
+                 Grid.RowSpan="3"
+                 MinWidth="200"
+                 ItemContainerStyle="{DynamicResource ExampleListItemStyle}"
+                 ItemTemplate="{DynamicResource ExampleItemTemplate}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                 Foreground="White"
+                 BorderBrush="#FFC5E7FF">
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1"
+                                     MappingMode="RelativeToBoundingBox"
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FF1D2431"
+                                  Offset="1" />
+                    <GradientStop Color="#FF5E7091" />
+                </LinearGradientBrush>
+            </ListBox.Background>
+        </ListBox>
+        <ContentPresenter Grid.Column="1"
+                          Content="{Binding SelectedItem.Control, ElementName=ExamplesList}"
+                          Grid.Row="2" />
+        <Border Grid.Column="1"
+                Background="#FF576886"
+                Grid.Row="1">
+            <TextBlock TextWrapping="Wrap"
+                       Text="{Binding SelectedItem.Title, ElementName=ExamplesList}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       FontSize="32"
+                       Foreground="White"
+                       Margin="10,0,0,0" />
+
+        </Border>
+        <Image Grid.Column="1"
+               Source="fluidkit.png"
+               HorizontalAlignment="Right"
+               Width="150"
+               d:LayoutOverrides="Height"
+               Margin="0,5" />
+
+    </Grid>
+</Window>
